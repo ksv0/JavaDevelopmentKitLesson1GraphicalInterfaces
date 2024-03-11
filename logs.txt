@@ -1,0 +1,6 @@
+Server started
+Login: qsd try to register
+Login: qweasd try to register
+Server started
+Login: qsd try to login
+Login: qsd login successful
