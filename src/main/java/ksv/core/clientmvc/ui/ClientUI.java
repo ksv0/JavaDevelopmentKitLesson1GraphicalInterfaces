@@ -1,12 +1,14 @@
-package ksv.core.ui;
+package ksv.core.clientmvc.ui;
 
-import ksv.core.clientmvc.ClientServices;
-import ksv.core.servermvc.ServerServices;
+import ksv.core.clientmvc.services.ClientServices;
+import ksv.core.clientmvc.services.ClientServicesInterface;
+import ksv.core.servermvc.services.ServerServices;
+import ksv.core.servermvc.services.ServerServicesInterface;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class ClientView extends JFrame {
+public class ClientUI extends JFrame implements ClientView{
     private JPanel textFields;
     private JTextField loginField, ipField, portField, chatInputField;
     private JPasswordField passwordField;
@@ -19,9 +21,9 @@ public class ClientView extends JFrame {
     private JTextArea log;
     private JPanel chatInput;
 
-    private ClientServices services;
+    private ClientServicesInterface services;
 
-    public ClientView(ServerServices serverServices) {
+    public ClientUI(ServerServicesInterface serverServices) {
         super("Client");
         services = new ClientServices(this, serverServices);
 

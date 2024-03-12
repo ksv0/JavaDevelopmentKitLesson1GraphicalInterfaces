@@ -1,13 +1,16 @@
-package ksv.core.servermvc;
+package ksv.core.servermvc.services;
 
-import ksv.core.clientmvc.ClientServices;
-import ksv.core.ui.ServerView;
+import ksv.core.clientmvc.services.ClientServicesInterface;
+import ksv.core.servermvc.model.ServerModelInterface;
+import ksv.core.servermvc.model.User;
+import ksv.core.servermvc.model.ServerModel;
+import ksv.core.servermvc.ui.ServerUI;
 
-public class ServerServices {
-    ServerModel model;
-    ServerView view;
+public class ServerServices implements ServerServicesInterface {
+    ServerModelInterface model;
+    ServerUI view;
 
-    public ServerServices(ServerView view) {
+    public ServerServices(ServerUI view) {
         this.view = view;
         model = new ServerModel();
     }
@@ -37,7 +40,7 @@ public class ServerServices {
         return model.getLogsAsString();
     }
 
-    public boolean loginUser(String login, String password, ClientServices client) {
+    public boolean loginUser(String login, String password, ClientServicesInterface client) {
         String message;
 
         if (!model.isServerWorking()) {
@@ -76,7 +79,7 @@ public class ServerServices {
         }
     }
 
-    public void sendMessage(String text, ClientServices client) {
+    public void sendMessage(String text, ClientServicesInterface client) {
         if (model.isServerWorking()) {
             User user = model.getUserByClient(client);
             if (user != null) {

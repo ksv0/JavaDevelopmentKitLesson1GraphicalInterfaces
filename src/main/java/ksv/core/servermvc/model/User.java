@@ -1,19 +1,20 @@
-package ksv.core.servermvc;
+package ksv.core.servermvc.model;
 
-import ksv.core.clientmvc.ClientServices;
+import ksv.core.clientmvc.services.ClientServices;
+import ksv.core.clientmvc.services.ClientServicesInterface;
 
 public class User {
     private static long counterID ;
     private final long id = ++counterID;
     private final String login;
     private String password;
-    private ClientServices currentClient;
+    private ClientServicesInterface currentClient;
 
-    public ClientServices getCurrentClient() {
+    public ClientServicesInterface getCurrentClient() {
         return currentClient;
     }
 
-    public void setCurrentClient(ClientServices currentClient) {
+    public void setCurrentClient(ClientServicesInterface currentClient) {
         this.currentClient = currentClient;
     }
 

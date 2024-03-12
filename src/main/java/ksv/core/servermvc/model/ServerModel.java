@@ -1,6 +1,7 @@
-package ksv.core.servermvc;
+package ksv.core.servermvc.model;
 
-import ksv.core.clientmvc.ClientServices;
+import ksv.core.clientmvc.services.ClientServices;
+import ksv.core.clientmvc.services.ClientServicesInterface;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -9,7 +10,7 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServerModel {
+public class ServerModel implements ServerModelInterface {
     private boolean isServerWorking = false;
     private List<User> users;
     private List<String> logs;
@@ -135,7 +136,7 @@ public class ServerModel {
         return false;
     }
 
-    public void addOnlineUser(String login, ClientServices client) {
+    public void addOnlineUser(String login, ClientServicesInterface client) {
         for (User user : users) {
             if (user.getLogin().equals(login)) {
                 user.setCurrentClient(client);
@@ -150,7 +151,7 @@ public class ServerModel {
         return onlineUsers;
     }
 
-    public User getUserByClient(ClientServices client) {
+    public User getUserByClient(ClientServicesInterface client) {
         for (User user : onlineUsers) {
             if (user.getCurrentClient().equals(client)) {
                 return user;

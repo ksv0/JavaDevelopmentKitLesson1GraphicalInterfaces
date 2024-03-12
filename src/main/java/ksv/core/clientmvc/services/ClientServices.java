@@ -1,16 +1,18 @@
-package ksv.core.clientmvc;
+package ksv.core.clientmvc.services;
 
-import ksv.core.servermvc.ServerServices;
-import ksv.core.ui.ClientView;
+import ksv.core.clientmvc.ui.ClientUI;
+import ksv.core.clientmvc.ui.ClientView;
+import ksv.core.servermvc.services.ServerServices;
+import ksv.core.servermvc.services.ServerServicesInterface;
 
 import java.util.Objects;
 
-public class ClientServices {
-    ServerServices serverServices;
+public class ClientServices implements ClientServicesInterface {
+    ServerServicesInterface serverServices;
     ClientView view;
     boolean loggedIn = false;
 
-    public ClientServices(ClientView view, ServerServices serverServices) {
+    public ClientServices(ClientView view, ServerServicesInterface serverServices) {
         this.serverServices = serverServices;
         this.view = view;
     }

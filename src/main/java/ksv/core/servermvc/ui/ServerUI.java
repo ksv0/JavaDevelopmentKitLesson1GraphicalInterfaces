@@ -1,21 +1,22 @@
-package ksv.core.ui;
+package ksv.core.servermvc.ui;
 
-import ksv.core.servermvc.ServerServices;
+import ksv.core.servermvc.services.ServerServices;
+import ksv.core.servermvc.services.ServerServicesInterface;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class ServerView extends JFrame {
+public class ServerUI extends JFrame implements ServerView{
     private static final int WINDOW_HEIGHT = 400;
     private static final int WINDOW_WIDTH = 300;
 
-    ServerServices services;
+    ServerServicesInterface services;
 
     JTextArea log;
 
     JButton buttonStart, buttonStop, buttonExit;
 
-    public ServerView() {
+    public ServerUI() {
         super("Chat server");
         services = new ServerServices(this);
 
@@ -69,7 +70,7 @@ public class ServerView extends JFrame {
 
     }
 
-    public ServerServices getServices() {
+    public ServerServicesInterface getServices() {
         return services;
     }
 }

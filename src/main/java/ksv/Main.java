@@ -1,13 +1,15 @@
 package ksv;
 
 
-import ksv.core.ui.ClientView;
-import ksv.core.ui.ServerView;
+import ksv.core.clientmvc.ui.ClientUI;
+import ksv.core.clientmvc.ui.ClientView;
+import ksv.core.servermvc.ui.ServerUI;
+import ksv.core.servermvc.ui.ServerView;
 
 public class Main {
     public static void main(String[] args) {
-       ServerView serverView = new ServerView();
-        ClientView clientView = new ClientView(serverView.getServices());
-        ClientView clientView1 = new ClientView(serverView.getServices());
+       ServerView serverUI = new ServerUI();
+        ClientView clientUI = new ClientUI(serverUI.getServices());
+        ClientView clientUI1 = new ClientUI(serverUI.getServices());
     }
 }
